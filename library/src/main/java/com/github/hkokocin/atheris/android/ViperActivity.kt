@@ -1,11 +1,11 @@
-package com.github.hkokocin.viper.android
+package com.github.hkokocin.atheris.android
 
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.github.hkokocin.viper.android.ActivityLifecycle
-import com.github.hkokocin.viper.interactor.ActivityInteractor
+import com.github.hkokocin.atheris.android.ActivityLifecycle
+import com.github.hkokocin.atheris.interactor.ActivityInteractor
 
 abstract class ViperActivity : AppCompatActivity() {
 

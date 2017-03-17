@@ -35,6 +35,7 @@ dependencies {
 
     compile dependencies.kotlin
 
+    compile dependencies.supportDesign
     compile dependencies.supportV4
 
     testCompile dependencies.jUnit

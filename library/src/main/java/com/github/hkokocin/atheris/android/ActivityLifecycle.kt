@@ -1,4 +1,4 @@
-package com.github.hkokocin.viper.android
+package com.github.hkokocin.atheris.android
 
 import android.content.res.Configuration
 import android.os.Bundle

@@ -1,13 +1,13 @@
-package com.github.hkokocin.viper.android
+package com.github.hkokocin.atheris.android
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.github.hkokocin.viper.android.FragmentLifecycle
-import com.github.hkokocin.viper.android.ViperActivity
-import com.github.hkokocin.viper.interactor.FragmentInteractor
+import com.github.hkokocin.atheris.android.FragmentLifecycle
+import com.github.hkokocin.atheris.android.ViperActivity
+import com.github.hkokocin.atheris.interactor.FragmentInteractor
 
 abstract class ViperFragment() : Fragment() {
 

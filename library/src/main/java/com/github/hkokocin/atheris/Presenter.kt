@@ -1,4 +1,4 @@
-package com.github.hkokocin.viper
+package com.github.hkokocin.atheris
 
 import android.content.Context
 import android.view.LayoutInflater

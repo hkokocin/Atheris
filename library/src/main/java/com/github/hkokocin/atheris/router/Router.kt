@@ -1,4 +1,4 @@
-package com.github.hkokocin.viper.router
+package com.github.hkokocin.atheris.router
 
 import android.app.Activity
 import android.content.res.Resources

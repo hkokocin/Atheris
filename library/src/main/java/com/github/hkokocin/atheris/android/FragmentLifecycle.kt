@@ -1,4 +1,4 @@
-package com.github.hkokocin.viper.android
+package com.github.hkokocin.atheris.android
 
 import android.os.Bundle
 import android.view.MenuItem
