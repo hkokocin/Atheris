@@ -31,7 +31,7 @@ android {
 dependencies {
     Map<String, String> dependencies = rootProject.ext.dependencies;
 
-    compile project(':androidKit')
+    compile "com.github.hkokocin.atheris:androidkit:0.3-SNAPSHOT"
 
     compile dependencies.kotlin
 
