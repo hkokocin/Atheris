@@ -28,10 +28,14 @@ android {
     }
 }
 
+//configurations.all { resolutionStrategy.cacheChangingModulesFor 0, 'seconds' }
+
 dependencies {
     Map<String, String> dependencies = rootProject.ext.dependencies;
 
-    compile "com.github.hkokocin.atheris:androidkit:0.3-SNAPSHOT"
+    compile ("com.github.hkokocin.atheris:androidkit:0.3-SNAPSHOT"){
+        changing true
+    }
 
     compile dependencies.kotlin
 

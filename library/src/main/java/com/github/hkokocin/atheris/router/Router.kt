@@ -3,9 +3,9 @@ package com.github.hkokocin.atheris.router
 import android.app.Activity
 import android.content.res.Resources
 import android.support.v7.app.AppCompatActivity
-import com.github.hkokocin.atheris.android.app.getExtra
-import com.github.hkokocin.atheris.android.app.getResource
-import com.github.hkokocin.atheris.android.content.getColorInt
+import com.github.hkokocin.androidkit.app.getExtra
+import com.github.hkokocin.androidkit.app.getResource
+import com.github.hkokocin.androidkit.content.getColorInt
 import kotlin.reflect.KClass
 
 open class Router(

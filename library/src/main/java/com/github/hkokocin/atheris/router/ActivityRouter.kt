@@ -12,7 +12,7 @@ open class ActivityRouter(private val activity: Activity) : Router(activity) {
 
     inline fun <reified T : Any> getExtra(name: String) = getExtra(T::class, name)
     inline fun <reified T : Any> getExtra(name: String, default: T) = getExtra(T::class, name) ?: default
-    fun <T : Any> getExtra(type: KClass<T>, name: String) = com.github.hkokocin.atheris.android.app.getExtra(type,
+    fun <T : Any> getExtra(type: KClass<T>, name: String) = com.github.hkokocin.androidkit.app.getExtra(type,
             name,
             activity.intent)
 }

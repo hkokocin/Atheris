@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.github.hkokocin.atheris.android.content.getColorInt
+import com.github.hkokocin.androidkit.content.getColorInt
 import kotlin.reflect.KClass
 
 abstract class Presenter(
@@ -27,7 +27,7 @@ abstract class Presenter(
     protected inline fun <reified T : Any> getResource(resourcesId: Int) = getResource(T::class, resourcesId)
 
     fun <T : Any> getResource(type: KClass<T>, resourcesId: Int): T {
-        return com.github.hkokocin.atheris.android.app.getResource(
+        return com.github.hkokocin.androidkit.app.getResource(
                 context.resources,
                 resourcesId,
                 type)
