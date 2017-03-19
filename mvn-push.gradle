@@ -39,11 +39,6 @@ def getRepositoryPassword() {
     return hasProperty('NEXUS_PASSWORD') ? NEXUS_PASSWORD : System.getenv("NEXUS_PASSWORD")
 }
 
-println "======================================="
-println getRepositoryUsername()
-println getRepositoryPassword()
-println "======================================="
-
 afterEvaluate { project ->
     uploadArchives {
         repositories {
