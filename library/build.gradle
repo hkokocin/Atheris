@@ -55,4 +55,6 @@ if (System.getenv("CI") == "true") {
     ext."signing.secretKeyRingFile" = "../secring.gpg"
 }
 
+println("KEY: " + ext."signing.password")
+
 apply from: '../mvn-push.gradle'
