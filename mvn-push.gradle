@@ -17,11 +17,10 @@
 apply plugin: 'maven'
 apply plugin: 'signing'
 
-
-if(System.getenv("CI") == "true"){
-    signing.keyId = System.getenv("SIGNING_KEY")
-    signing.password = System.getenv("SIGNING_PASSWORD")
-    signing.secretKeyRingFile = "secring.gpg"
+if (System.getenv("CI") == "true") {
+    ext."signing.keyId" = System.getenv("SIGNING_KEY")
+    ext."signing.password" = System.getenv("SIGNING_PASSWORD")
+    ext."signing.secretKeyRingFile" = "secring.gpg"
 }
 
 def isReleaseBuild() {
