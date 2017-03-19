@@ -3,6 +3,8 @@ apply plugin: 'kotlin-android'
 
 def config = rootProject.ext
 
+println NEXUS_USERNAME
+
 android {
     compileSdkVersion config.targetSdkVersion
     buildToolsVersion config.buildToolsVersion
