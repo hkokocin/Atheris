@@ -14,7 +14,7 @@ branches:
   - master
   - stable
 script:
-- ./gradlew clean build
+- ./gradlew clean build uploadArchives
 env:
   global:
   - HELLO="World"
