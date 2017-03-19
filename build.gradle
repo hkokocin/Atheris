@@ -12,10 +12,6 @@ buildscript {
 
 apply from: 'dependencies.gradle'
 
-if(System.getenv("CI") == "true"){
-    HELLO = System.getenv("HELLO")
-}
-
 ext {
     buildToolsVersion = "25.0.2"
     minSdkVersion = 21
