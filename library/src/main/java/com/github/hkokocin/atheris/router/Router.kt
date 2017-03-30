@@ -47,10 +47,10 @@ open class Router(
     inline fun <reified T : Any> getExtra(name: String) = getExtra(name, T::class)
     fun <T : Any> getExtra(name: String, type: KClass<T>) = getExtra(type, name, activity.intent)
 
-    inline fun <reified T : Any> resource(resourcesId: Int) = resource(resourcesId, T::class)
-    fun <T : Any> resource(resourcesId: Int, type: KClass<T>) = getResource(resources, resourcesId, type)
+    inline fun <reified T : Any> getResource(resourcesId: Int) = getResource(resourcesId, T::class)
+    fun <T : Any> getResource(resourcesId: Int, type: KClass<T>) = getResource(resources, resourcesId, type)
 
-    fun colorResource(resourcesId: Int, theme: Resources.Theme? = null) = resources.getColorInt(resourcesId, theme)
+    fun getColorResource(resourcesId: Int, theme: Resources.Theme? = null) = resources.getColorInt(resourcesId, theme)
 
-    fun dimensionInPixels(resourcesId: Int) = resources.getDimensionPixelSize(resourcesId)
+    fun getDimensionInPixels(resourcesId: Int) = resources.getDimensionPixelSize(resourcesId)
 }
