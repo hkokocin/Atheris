@@ -41,8 +41,11 @@ open class Router(
     val resources: Resources
         get() = activity.resources
 
-    inline fun <reified T : Any> extra(name: String, default: T) = extra(name, default, T::class)
-    fun <T : Any> extra(name: String, default: T, type: KClass<T>) = getExtra(type, name, activity.intent) ?: default
+    fun hasExtra(name: String) = activity.intent.hasExtra(name)
+    inline fun <reified T : Any> getExtra(name: String, default: T) = getExtra(name, default, T::class)
+    fun <T : Any> getExtra(name: String, default: T, type: KClass<T>) = getExtra(type, name, activity.intent) ?: default
+    inline fun <reified T : Any> getExtra(name: String) = getExtra(name, T::class)
+    fun <T : Any> getExtra(name: String, type: KClass<T>) = getExtra(type, name, activity.intent)
 
     inline fun <reified T : Any> resource(resourcesId: Int) = resource(resourcesId, T::class)
     fun <T : Any> resource(resourcesId: Int, type: KClass<T>) = getResource(resources, resourcesId, type)
