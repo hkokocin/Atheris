@@ -33,7 +33,7 @@ android {
 dependencies {
     Map<String, String> dependencies = rootProject.ext.dependencies;
 
-    compile ("com.github.hkokocin.atheris:androidkit:0.3-SNAPSHOT"){
+    compile ("com.github.hkokocin.atheris:androidkit:0.4-SNAPSHOT"){
         changing true
     }
 
