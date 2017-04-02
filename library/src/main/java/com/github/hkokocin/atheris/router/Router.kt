@@ -22,15 +22,23 @@ open class Router(
 
     fun setTitle(title: String) {
         activity.actionBar?.title = title
-        if (activity is AppCompatActivity) {
+        if (activity is AppCompatActivity)
             activity.supportActionBar?.title = title
-        }
     }
 
     fun setSubTitle(subtitle: String) {
         activity.actionBar?.subtitle = subtitle
-        if (activity is AppCompatActivity) {
+        if (activity is AppCompatActivity)
             activity.supportActionBar?.subtitle = subtitle
+    }
+
+    fun showUpButton(show: Boolean) {
+        activity.actionBar?.setDisplayHomeAsUpEnabled(show)
+        activity.actionBar?.setHomeButtonEnabled(show)
+
+        if (activity is AppCompatActivity) {
+            activity.supportActionBar?.setDisplayHomeAsUpEnabled(show)
+            activity.supportActionBar?.setHomeButtonEnabled(show)
         }
     }
 
