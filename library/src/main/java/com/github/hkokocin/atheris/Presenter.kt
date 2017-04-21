@@ -43,8 +43,8 @@ abstract class Presenter(
         context.resources.getDimensionPixelSize(resourcesId)
     }
 
-    fun createView(inflater: LayoutInflater, parent: ViewGroup? = null): View {
-        rootView = inflater.inflate(layoutResource, parent, false)
+    fun createView(inflater: LayoutInflater, parent: ViewGroup? = null, attachToParent: Boolean = false): View {
+        rootView = inflater.inflate(layoutResource, parent, attachToParent)
         viewCreated = true
         onViewCreated()
         return rootView
