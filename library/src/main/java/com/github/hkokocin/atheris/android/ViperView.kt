@@ -9,7 +9,7 @@ import com.github.hkokocin.atheris.interactor.ViewInteractor
 
 abstract class ViperView {
 
-    protected abstract val interactor: ViewInteractor
+    abstract val interactor: ViewInteractor
 
     internal lateinit var lifecycle: ViewLifecycle
 
