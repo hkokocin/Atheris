@@ -4,12 +4,12 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import com.github.hkokocin.atheris.android.ActivityLifecycle
 import com.github.hkokocin.atheris.interactor.ActivityInteractor
 
 abstract class ViperActivity : AppCompatActivity() {
 
     protected abstract val interactor: ActivityInteractor
+    protected abstract val layout: Int
 
     internal lateinit var lifecycle: ActivityLifecycle
 
@@ -17,7 +17,10 @@ abstract class ViperActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         lifecycle = interactor.router.lifecycle
         lifecycle.onCreate(savedInstanceState)
-        setContentView(interactor.presenter.createView(layoutInflater, null))
+
+        val rootView = layoutInflater.inflate(layout, null)
+        setContentView(rootView)
+        interactor.presenter.create(rootView)
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
@@ -70,10 +73,9 @@ abstract class ViperActivity : AppCompatActivity() {
         lifecycle.onBackPressed()
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (lifecycle.onOptionsItemSelected(item))
-            return true
-        else
-            return super.onOptionsItemSelected(item)
-    }
+    override fun onOptionsItemSelected(item: MenuItem) =
+            if (lifecycle.onOptionsItemSelected(item))
+                true
+            else
+                super.onOptionsItemSelected(item)
 }

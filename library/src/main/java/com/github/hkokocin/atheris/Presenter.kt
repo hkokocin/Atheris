@@ -1,17 +1,18 @@
 package com.github.hkokocin.atheris
 
 import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.github.hkokocin.androidkit.content.getColorInt
 import kotlin.reflect.KClass
 
-abstract class Presenter(
-        private val layoutResource: Int,
-        protected val context: Context
-) {
+abstract class Presenter {
+
+    protected lateinit var context: Context
+        private set
+
     protected lateinit var rootView: View
+        private set
+
     var viewCreated: Boolean = false
         private set
 
@@ -43,10 +44,12 @@ abstract class Presenter(
         context.resources.getDimensionPixelSize(resourcesId)
     }
 
-    fun createView(inflater: LayoutInflater, parent: ViewGroup? = null, attachToParent: Boolean = false): View {
-        rootView = inflater.inflate(layoutResource, parent, attachToParent)
+    fun create(view: View) {
+
+        if (viewCreated) throw IllegalStateException("View has already been created.")
+
+        rootView = view
         viewCreated = true
         onViewCreated()
-        return rootView
     }
 }
