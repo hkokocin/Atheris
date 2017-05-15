@@ -5,12 +5,12 @@ import android.support.v4.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.github.hkokocin.atheris.android.FragmentLifecycle
 import com.github.hkokocin.atheris.interactor.DialogFragmentInteractor
 
 abstract class ViperDialogFragment : DialogFragment() {
 
     abstract val interactor: DialogFragmentInteractor
+    abstract val layout: Int
 
     lateinit var lifecycle: FragmentLifecycle
 
@@ -20,9 +20,10 @@ abstract class ViperDialogFragment : DialogFragment() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return interactor.presenter.createView(inflater, container)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
+            inflater.inflate(layout, container).apply {
+                interactor.presenter.create(this)
+            }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

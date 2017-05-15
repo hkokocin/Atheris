@@ -5,13 +5,12 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.github.hkokocin.atheris.android.FragmentLifecycle
-import com.github.hkokocin.atheris.android.ViperActivity
 import com.github.hkokocin.atheris.interactor.FragmentInteractor
 
 abstract class ViperFragment() : Fragment() {
 
     abstract val interactor: FragmentInteractor
+    abstract val layout: Int
 
     lateinit var lifecycle: FragmentLifecycle
 
@@ -27,7 +26,9 @@ abstract class ViperFragment() : Fragment() {
             viperActivity.lifecycle.onOptionsItemSelected = { lifecycle.onOptionsItemSelected(it) }
         }
 
-        return interactor.presenter.createView(inflater, container)
+        return inflater.inflate(layout, container).apply {
+            interactor.presenter.create(this)
+        }
     }
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {

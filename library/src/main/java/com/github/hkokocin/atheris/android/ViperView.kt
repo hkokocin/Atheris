@@ -10,6 +10,7 @@ import com.github.hkokocin.atheris.interactor.ViewInteractor
 abstract class ViperView {
 
     abstract val interactor: ViewInteractor
+    abstract val layout: Int
 
     internal lateinit var lifecycle: ViewLifecycle
 
@@ -20,10 +21,11 @@ abstract class ViperView {
     fun createView(inflater: LayoutInflater, parent: ViewGroup? = null, attachToParent: Boolean = false) {
         if (root != null) throw IllegalStateException("View has already been inflated")
 
-        root = interactor.presenter.createView(inflater, parent, attachToParent)
-
-        root?.onAttachedToWindow { lifecycle.onAttachedToWindow() }
-        root?.onDetachedFromWindow { lifecycle.onDetachedFromWindow() }
+        root = inflater.inflate(layout, parent, attachToParent).apply {
+            interactor.presenter.create(this)
+            onAttachedToWindow { lifecycle.onAttachedToWindow() }
+            onDetachedFromWindow { lifecycle.onDetachedFromWindow() }
+        }
 
         onViewCreated()
     }
