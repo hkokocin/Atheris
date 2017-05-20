@@ -49,6 +49,7 @@ abstract class Presenter {
         if (viewCreated) throw IllegalStateException("View has already been created.")
 
         rootView = view
+        context = view.context
         viewCreated = true
         onViewCreated()
     }
