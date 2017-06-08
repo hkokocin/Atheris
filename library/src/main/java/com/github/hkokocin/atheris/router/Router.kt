@@ -51,9 +51,9 @@ open class Router(
 
     fun hasExtra(name: String) = activity.intent.hasExtra(name)
     inline fun <reified T : Any> getExtra(name: String, default: T) = getExtra(name, default, T::class)
-    fun <T : Any> getExtra(name: String, default: T, type: KClass<T>) = getExtra(type, name, activity.intent) ?: default
+    fun <T : Any> getExtra(name: String, default: T, type: KClass<T>) = getExtra(activity.intent, name, type) ?: default
     inline fun <reified T : Any> getExtra(name: String) = getExtra(name, T::class)
-    fun <T : Any> getExtra(name: String, type: KClass<T>) = getExtra(type, name, activity.intent)
+    fun <T : Any> getExtra(name: String, type: KClass<T>) = getExtra(activity.intent, name, type)
 
     inline fun <reified T : Any> getResource(resourcesId: Int) = getResource(resourcesId, T::class)
     fun <T : Any> getResource(resourcesId: Int, type: KClass<T>) = getResource(resources, resourcesId, type)
