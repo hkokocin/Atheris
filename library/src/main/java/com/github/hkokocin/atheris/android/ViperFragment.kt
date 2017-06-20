@@ -11,6 +11,7 @@ abstract class ViperFragment() : Fragment() {
 
     abstract val interactor: FragmentInteractor
     abstract val layout: Int
+    open val attachToRoot: Boolean = true
 
     lateinit var lifecycle: FragmentLifecycle
 
@@ -26,7 +27,7 @@ abstract class ViperFragment() : Fragment() {
             viperActivity.lifecycle.onOptionsItemSelected = { lifecycle.onOptionsItemSelected(it) }
         }
 
-        return inflater.inflate(layout, container).apply {
+        return inflater.inflate(layout, container, attachToRoot).apply {
             interactor.presenter.create(this)
         }
     }
