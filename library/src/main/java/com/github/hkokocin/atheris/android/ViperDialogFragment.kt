@@ -25,7 +25,7 @@ abstract class ViperDialogFragment : DialogFragment() {
                 interactor.presenter.create(this)
             }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         lifecycle.onCreate(savedInstanceState)
     }
@@ -55,7 +55,7 @@ abstract class ViperDialogFragment : DialogFragment() {
         lifecycle.onDestroy()
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         lifecycle.onSaveInstanceState(outState)
     }
